@@ -33,21 +33,22 @@ the module should works fine also with:
 
 ### Import the module in foreman
 
-Inside foreman web application go ti Configure -> Puppet classes
+Inside foreman web application go to Configure -> Puppet classes
 Push the import button. (Import from <puppetmester host>
-Check the Add to keepalived line and click Import.
+Check the Add tips to keepalived line and click Import.
 
 ### Configure the module with your parameters:
 
 You can change all the parameter you want in all the class. But the mandatory ones are:
 
 * In keepalived::global_defs module set the parameter notification email to an email address of the clusters administrator.
-* In keepalived::vrrp::instance check the interface, by deafult is eth0, but could be em1 or eth1 or something else
-* In keepalived::vrrp::instance the priority for the fist host is 100 remember to put higher priority for the other host in cluster
-* In keepalived::vrrp::instance set the unicast_peers like and array of ip adresses of your servers in the cluster like: ["192.168.10.15","192.168.10.16","192.168.10.17"]
-* In keepalived::vrrp::instance set the virtual_ipaddress this is the VIP of the cluster
-* In keepalived::vrrp::script set the name variable for example chk_haproxy
-* In keepalived::vrrp::script set the script variable for example with the script (killall -0 haproxy) useful for check haproxy processes
+* In keepalived::vrrp::instance check the interface, by deafult is eth0, but could be em1 or eth1 or something else.
+* In keepalived::vrrp::instance chage the name parameter like VI_1 or what you prefer.
+* In keepalived::vrrp::instance the priority for the fist host is 100 remember to put higher priority for the other host in cluster.
+* In keepalived::vrrp::instance set the unicast_peers like and array of ip adresses of your servers in the cluster like: ["192.168.10.15","192.168.10.16","192.168.10.17"] Remember to put array in the key type inside foreman.
+* In keepalived::vrrp::instance set the virtual_ipaddress this is the VIP of the cluster.
+* In keepalived::vrrp::script set the name variable for example chk_haproxy.
+* In keepalived::vrrp::script set the script variable for example with the script (killall -0 haproxy) useful for check haproxy processes.
 
 ### Assign to each host in the cluster the modules
 
